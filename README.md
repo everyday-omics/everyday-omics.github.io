@@ -1,0 +1,67 @@
+# everyday-omics.github.io
+
+The public site for **Everyday Omics** — a computational genomics team in formation at
+Tel Aviv Sourasky Medical Center. Served by GitHub Pages from `main` at
+<https://everyday-omics.github.io/>.
+
+Plain HTML, CSS and one small JS file. No build step: edit, commit, push, and the site
+is live in about a minute.
+
+## Files
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | The whole site. All copy lives here. |
+| `assets/site.css` | Styles. Brand colours are the CSS variables at the top. |
+| `assets/site.js` | Nav, scroll reveals, and the hero parallax. |
+| `assets/logo.svg` | The mark, redrawn as vectors from the original PNG. |
+| `assets/pileup.svg` | The read-pileup texture used behind the dark sections. |
+| `assets/tasmc.png` | Tel Aviv Sourasky Medical Center logo. |
+| `assets/og.png` | Preview card shown when the link is shared. |
+
+## Editing the things that change most
+
+**Publications** — in `index.html`, find `EDIT PUBLICATIONS HERE`. Copy one `<li class="pub">`
+block, paste it at the top of the list, and change the year, title, authors and journal.
+Wrap the PI's name in `<b>…</b>` so it stands out. The `Find` link is a Google Scholar
+search on the title, so it never goes stale.
+
+**Open roles and team members** — find `EDIT OPEN ROLES HERE`. To add a person, copy the
+`<article class="person">` block above the openings list and swap the portrait `<svg>` for
+`<img src="assets/their-photo.jpg" alt="">`. Delete an `<li class="opening">` when the role
+is filled.
+
+**Research themes** — the three `<li class="theme">` blocks under `id="research"`.
+
+**Status** — the site says the team is in formation in four places: the hero pills, the
+facts panel, the publications note and the footer fine print. Search for `in formation`
+when that stops being true.
+
+## Colours
+
+Both hex values come straight from the logo; the navy is TASMC's.
+
+```
+--blue #3D8ACA   Everyday Omics, dark chevron
+--cyan #54C2E1   Everyday Omics, light chevron
+--navy #1B3B72   Tel Aviv Sourasky Medical Center
+```
+
+## Local preview
+
+```sh
+python3 -m http.server 8899
+# then open http://localhost:8899
+```
+
+## The contact address
+
+The address is never written in source order anywhere in this repo. In `index.html`
+each contact link carries `data-u` / `data-d` (the user and the domain, base64), and the
+visible text is stored reversed and flipped back by `.mail__t` in the CSS. `assets/site.js`
+reassembles it: it restores real, copyable text on load and attaches the `mailto:` only on
+first hover, focus or tap. A harvester reading the raw HTML finds nothing to match.
+
+If you add another contact link, copy an existing `class="mail"` anchor — **do not** paste
+a plain `name@host` address into the markup, and keep it out of the JSON-LD block too.
+Commits here use the GitHub noreply author address for the same reason.

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Everyday Omics">
+  <rect width="64" height="64" rx="13" fill="#0E2242"/>
+  <g transform="translate(32 32) scale(0.0455) translate(-500 -500)">
+    <path fill="#54C2E1" d="M313 33 714 422 714 578 313 967 210 859 581 500 210 141Z"/>
+    <path fill="#FFFFFF" d="M651 33 754 138 385 500 754 862 651 967 175 500Z"/>
+    <path fill="#FFFFFF" d="M385 427 826 427 826 574 385 574Z"/>
+  </g>
+</svg>
