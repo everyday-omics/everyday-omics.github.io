@@ -61,9 +61,9 @@
 
 
   /* ── email ──────────────────────────────────────────────────────────────
-     The address is never displayed and never written into the DOM. It is
-     split and base64'd in the markup, and assembled only to build the mailto:
-     on first hover, focus or tap — so it exists nowhere a scraper can read. */
+     The address is never displayed, never written into the DOM, and never set
+     as an href. It is split and base64'd in the markup and reassembled only in
+     the click handler, at the moment the visitor asks to send mail. */
   var mails = Array.prototype.slice.call(document.querySelectorAll('.mail'));
 
   function address(el) {
@@ -71,14 +71,13 @@
   }
 
   mails.forEach(function (el) {
-    var armed = false;
-    function arm() {
-      if (armed) return;
-      armed = true;
-      el.href = 'mailto:' + address(el) + (el.dataset.s ? '?subject=' + encodeURIComponent(el.dataset.s) : '');
-    }
-    ['mouseenter', 'mousedown', 'touchstart', 'focus'].forEach(function (ev) {
-      el.addEventListener(ev, arm, { passive: true });
+    /* No href mutation: hovering used to arm the link, which put the address in
+       the status bar and made it copyable. The mailto: is now built only inside
+       the click handler, so it never lands in the DOM at all. */
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'mailto:' + address(el) +
+        (el.dataset.s ? '?subject=' + encodeURIComponent(el.dataset.s) : '');
     });
   });
 

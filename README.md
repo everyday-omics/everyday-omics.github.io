@@ -29,7 +29,7 @@ search on the title, so it never goes stale.
 **Team members** — under `id="team"`. To add someone, copy the `<article class="person">`
 block and swap the portrait `<svg>` for `<img src="assets/their-photo.jpg" alt="">`.
 
-**Research themes** — the three `<li class="theme">` blocks under `id="research"`.
+**Research** — the section under `id="research"`: the heading and the two paragraphs.
 
 **Status** — the site says the team is being established in three places: the publications
 note, the team note and the footer fine print.
@@ -57,11 +57,11 @@ python3 -m http.server 8899
 
 ## The contact address
 
-The address is never shown on the page and never written into the DOM. Contact links
-read "Write to us" / "Email the team" / "Email" and carry `data-u` / `data-d` — the user
-and the domain, base64. `assets/site.js` assembles them only to set the `mailto:`, and only
-on first hover, focus or tap. Nothing a harvester can read, in the markup or in the
-rendered page.
+The address is never shown, never written into the DOM, and never set as an `href`.
+Contact links read "Email the team" / "Email", point at `#contact`, and carry `data-u` /
+`data-d` — the user and the domain, base64. `assets/site.js` reassembles it *inside the
+click handler* and hands it straight to `window.location`, so a `mailto:` never exists in
+the document — not in the markup, not after a hover, not in the status bar.
 
 If you add another contact link, copy an existing `class="mail"` anchor — **do not** paste
 a plain `name@host` address into the markup, and keep it out of the JSON-LD block too.
