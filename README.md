@@ -58,10 +58,15 @@ python3 -m http.server 8899
 ## The contact address
 
 The address is never shown, never written into the DOM, and never set as an `href`.
-Contact links read "Email the team" / "Email", point at `#contact`, and carry `data-u` /
-`data-d` — the user and the domain, base64. `assets/site.js` reassembles it *inside the
-click handler* and hands it straight to `window.location`, so a `mailto:` never exists in
-the document — not in the markup, not after a hover, not in the status bar.
+Contact links read "Email the team" / "Email", point at `#contact`, and carry a `data-c`
+attribute: the character codes of the address, each offset by 7. `assets/site.js` decodes
+it *inside the click handler* and hands the `mailto:` straight to `window.location`, so it
+never exists in the document — not in the markup, not after a hover, not in the status bar.
+
+This stops address harvesters, which pattern-match raw text, `mailto:` links and base64.
+It does **not** stop a scraper that executes the page's JavaScript — nothing client-side
+can. If that becomes a concern, the options are a hosted contact form or not publishing an
+address at all.
 
 If you add another contact link, copy an existing `class="mail"` anchor — **do not** paste
 a plain `name@host` address into the markup, and keep it out of the JSON-LD block too.

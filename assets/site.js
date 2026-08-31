@@ -67,7 +67,12 @@
   var mails = Array.prototype.slice.call(document.querySelectorAll('.mail'));
 
   function address(el) {
-    return atob(el.dataset.u) + String.fromCharCode(64) + atob(el.dataset.d);
+    /* Character codes with a fixed offset, not base64 — base64 is a known
+       address-hiding trick and harvesters decode it on sight. Nothing in the
+       markup matches an address pattern or a recognisable encoding. */
+    return el.dataset.c.split('-').map(function (n) {
+      return String.fromCharCode(n - 7);
+    }).join('');
   }
 
   mails.forEach(function (el) {
