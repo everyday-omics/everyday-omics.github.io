@@ -270,25 +270,22 @@ a:hover{ color:var(--navy); }
 .intro{ display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:clamp(2.5rem, 6vw, 6rem); align-items:start; }
 .intro__body p:not(.eyebrow){ max-width:56ch; }
 
-.facts{
+.host{
   background:var(--surface);
   border:1px solid var(--rule);
   border-radius:3px;
-  padding:clamp(1.5rem, 2.6vw, 2.2rem);
+  padding:clamp(1.6rem, 2.8vw, 2.3rem);
   box-shadow:0 24px 60px -40px rgba(14,34,66,.55);
   position:sticky; top:104px;
 }
-.facts dl{ margin:0; }
-.facts dl > div{ padding:.85rem 0; border-bottom:1px solid var(--rule); }
-.facts dl > div:first-child{ padding-top:0; }
-.facts dl > div:last-child{ border-bottom:0; padding-bottom:0; }
-.facts dt{
-  font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--ink-2); margin-bottom:.35em;
+.host__logo{ display:block; width:88px; height:auto; margin:0 0 1.6rem; }
+.host__k{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-2); margin:0 0 .75em;
 }
-.facts dd{ margin:0; font-size:1.02rem; line-height:1.4; }
-.facts dl > div:first-child dd{ color:var(--blue); font-weight:600; }
-.facts__host{ display:block; width:74px; height:auto; margin-top:1.9rem; opacity:.95; }
+.host__n{ font-size:1.16rem; line-height:1.34; font-weight:600; letter-spacing:-.005em; margin:0 0 .3em; }
+.host__he{ font-size:1rem; color:var(--ink-2); margin:0 0 1em; text-align:left; }
+.host__l{ font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; color:var(--ink-2); margin:0; }
 
 /* ── research ────────────────────────────────────────────────────────────── */
 
@@ -319,12 +316,6 @@ a:hover{ color:var(--navy); }
 .theme__t{ font-family:var(--body); font-weight:600; font-size:1.18rem; line-height:1.32; margin:0 0 .7em; letter-spacing:-.005em; }
 .theme__b{ color:color-mix(in srgb, var(--ink) 88%, var(--ink-2)); max-width:54ch; }
 
-.tags{ display:flex; flex-wrap:wrap; gap:.45rem; margin:1.3em 0 0; }
-.tags span{
-  font-family:var(--mono); font-size:11.5px; letter-spacing:.05em;
-  color:var(--ink-2); padding:.35em .75em;
-  border:1px solid var(--rule); border-radius:999px;
-}
 
 /* ── publications ────────────────────────────────────────────────────────── */
 
@@ -473,7 +464,7 @@ a:hover{ color:var(--navy); }
   .hero__lede{ max-width:38ch; }
 
   .intro{ grid-template-columns:1fr; }
-  .facts{ position:static; }
+  .host{ position:static; }
   .theme{ grid-template-columns:1fr; gap:1rem; }
   .pub{ grid-template-columns:64px minmax(0,1fr); }
   .pub__go{ grid-column:2; opacity:1; color:var(--blue); margin-top:.6em; }

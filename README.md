@@ -26,15 +26,15 @@ block, paste it at the top of the list, and change the year, title, authors and 
 Wrap the PI's name in `<b>…</b>` so it stands out. The `Find` link is a Google Scholar
 search on the title, so it never goes stale.
 
-**Open roles and team members** — find `EDIT OPEN ROLES HERE`. To add a person, copy the
+**Open roles and team members** — under `id="team"`, find `EDIT OPEN ROLES HERE`. To add a person, copy the
 `<article class="person">` block above the openings list and swap the portrait `<svg>` for
 `<img src="assets/their-photo.jpg" alt="">`. Delete an `<li class="opening">` when the role
 is filled.
 
 **Research themes** — the three `<li class="theme">` blocks under `id="research"`.
 
-**Status** — the site says the team is in formation in four places: the hero pills, the
-facts panel, the publications note and the footer fine print. Search for `in formation`
+**Status** — the site says the team is in formation in four places: the hero pill, the
+publications note, the team note and the footer fine print. Search for `in formation`
 when that stops being true.
 
 ## Colours
