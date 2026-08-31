@@ -56,11 +56,11 @@ python3 -m http.server 8899
 
 ## The contact address
 
-The address is never written in source order anywhere in this repo. In `index.html`
-each contact link carries `data-u` / `data-d` (the user and the domain, base64), and the
-visible text is stored reversed and flipped back by `.mail__t` in the CSS. `assets/site.js`
-reassembles it: it restores real, copyable text on load and attaches the `mailto:` only on
-first hover, focus or tap. A harvester reading the raw HTML finds nothing to match.
+The address is never shown on the page and never written into the DOM. Contact links
+read "Write to us" / "Email the team" / "Email" and carry `data-u` / `data-d` — the user
+and the domain, base64. `assets/site.js` assembles them only to set the `mailto:`, and only
+on first hover, focus or tap. Nothing a harvester can read, in the markup or in the
+rendered page.
 
 If you add another contact link, copy an existing `class="mail"` anchor — **do not** paste
 a plain `name@host` address into the markup, and keep it out of the JSON-LD block too.

@@ -61,9 +61,9 @@
 
 
   /* ── email ──────────────────────────────────────────────────────────────
-     The address is split, base64'd in the markup and only assembled here, so
-     the served HTML contains no scrapable "user@host" string. Real text is
-     restored for copy/paste; the mailto: is attached on first interaction. */
+     The address is never displayed and never written into the DOM. It is
+     split and base64'd in the markup, and assembled only to build the mailto:
+     on first hover, focus or tap — so it exists nowhere a scraper can read. */
   var mails = Array.prototype.slice.call(document.querySelectorAll('.mail'));
 
   function address(el) {
@@ -71,11 +71,6 @@
   }
 
   mails.forEach(function (el) {
-    var label = el.querySelector('.mail__t');
-    if (label) {
-      label.textContent = address(el);
-      label.classList.add('is-decoded');
-    }
     var armed = false;
     function arm() {
       if (armed) return;

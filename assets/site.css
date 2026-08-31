@@ -504,10 +504,3 @@ a:hover{ color:var(--navy); }
 
 /* second column of a research theme */
 .theme__c{ min-width:0; }
-
-/* ── email obfuscation ───────────────────────────────────────────────────
-   The address is never written in source order: the visible text is stored
-   reversed and flipped back here, and the mailto: is assembled by site.js.
-   Harvesters that scrape raw HTML find nothing to match. */
-.mail__t{ unicode-bidi:bidi-override; direction:rtl; }
-.mail__t.is-decoded{ unicode-bidi:normal; direction:ltr; }
